@@ -58,9 +58,8 @@ The response example has the pagination object and a item list
 
 ## Request with filter using search terms
 ```
-http://localhost:8080/products?page=1&size=5&filter=High%20prec
+http://localhost:8080/products?page=1&size=5&filter=Watch
 ```
-
 
 The response example has the pagination object and a item list
 ```
@@ -69,14 +68,14 @@ The response example has the pagination object and a item list
 		{
 			"size": 5,
 			"page": 1,
-			"totalPages": 4
+			"totalPages": 1
 		}
 	],
 	"products": [
 		{
-			"id": 11,
-			"name": "Gaming Mouse",
-			"description": "High precision gaming mouse with customizable buttons.",
+			"id": 7,
+			"name": "Smart Watch",
+			"description": "Fitness tracker and smartwatch with heart rate monitoring",
 			"status": true
 		}
 	]

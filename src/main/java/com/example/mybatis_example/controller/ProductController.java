@@ -25,10 +25,16 @@ public class ProductController {
             @RequestParam("filter") String filter,
             @RequestParam("page")int page,
             @RequestParam("size")int size){
+        int totalItems = 0;
+        int totalPages = 0;
         int offset = (page - 1) * size;
-        int totalItems = service.getItemCount();
-        int totalPages = (int) Math.ceil((double) totalItems / size);
         List<Product> products = service.findAll(filter, offset, size);
+        if(filter.isEmpty() || filter.isBlank()){
+            totalItems = service.getItemCount();
+        }else{
+            totalItems = products.size();
+        }
+        totalPages = (int) Math.ceil((double) totalItems / size);
         List<Pagination> pageResponse = new ArrayList<>();
         Pagination pagination = new Pagination(size, page, totalPages);
         pageResponse.add(pagination);
