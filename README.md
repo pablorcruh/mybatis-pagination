@@ -8,63 +8,43 @@ of the url page and size
 The request example can be like
 
 ```
-http://localhost:8080/products?page=2&size=10
+http://localhost:8080/products?page=1&size=5
 ```
 
 The response example has the page number and a item list
 
 ```
 {
-	"page": 2,
-	"users": [
+	"pagination": [
 		{
-			"id": 11,
-			"name": "TV 10",
+			"size": 5,
+			"page": 1
+		}
+	],
+	"products": [
+		{
+			"id": 1,
+			"name": "TV",
 			"status": true
 		},
 		{
-			"id": 12,
-			"name": "TV 11",
+			"id": 2,
+			"name": "TV 1",
 			"status": true
 		},
 		{
-			"id": 13,
-			"name": "TV 12",
+			"id": 3,
+			"name": "TV 2",
 			"status": true
 		},
 		{
-			"id": 14,
-			"name": "TV 13",
+			"id": 4,
+			"name": "TV 3",
 			"status": true
 		},
 		{
-			"id": 15,
-			"name": "TV 14",
-			"status": true
-		},
-		{
-			"id": 16,
-			"name": "TV 15",
-			"status": true
-		},
-		{
-			"id": 17,
-			"name": "TV 16",
-			"status": true
-		},
-		{
-			"id": 18,
-			"name": "TV 17",
-			"status": true
-		},
-		{
-			"id": 19,
-			"name": "TV 18",
-			"status": true
-		},
-		{
-			"id": 20,
-			"name": "TV 19",
+			"id": 5,
+			"name": "TV 4",
 			"status": true
 		}
 	]
