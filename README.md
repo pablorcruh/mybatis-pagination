@@ -7,44 +7,76 @@ of the url page and size
 
 The request example can be like
 
+## Request with empty filter
 ```
-http://localhost:8080/products?page=1&size=5
+http://localhost:8080/products?page=1&size=5&filter
 ```
-
-The response example has the page number and a item list
-
+The response example has the pagination object and a item list
 ```
 {
 	"pagination": [
 		{
 			"size": 5,
-			"page": 1
+			"page": 1,
+			"totalPages": 4
 		}
 	],
 	"products": [
 		{
 			"id": 1,
-			"name": "TV",
+			"name": "Smartphone",
+			"description": "High-end smartphone with advanced features",
 			"status": true
 		},
 		{
 			"id": 2,
-			"name": "TV 1",
+			"name": "Laptop",
+			"description": "Thin and light laptop with powerful performance",
 			"status": true
 		},
 		{
 			"id": 3,
-			"name": "TV 2",
+			"name": "Smart TV",
+			"description": "4K Ultra HD Smart TV with built-in streaming apps",
 			"status": true
 		},
 		{
 			"id": 4,
-			"name": "TV 3",
+			"name": "Wireless Earbuds",
+			"description": "True wireless earbuds with noise cancellation",
 			"status": true
 		},
 		{
 			"id": 5,
-			"name": "TV 4",
+			"name": "Gaming Console",
+			"description": "Next-gen gaming console for immersive gaming experience",
+			"status": true
+		}
+	]
+}
+```
+
+## Request with filter using search terms
+```
+http://localhost:8080/products?page=1&size=5&filter=High%20prec
+```
+
+
+The response example has the pagination object and a item list
+```
+{
+	"pagination": [
+		{
+			"size": 5,
+			"page": 1,
+			"totalPages": 4
+		}
+	],
+	"products": [
+		{
+			"id": 11,
+			"name": "Gaming Mouse",
+			"description": "High precision gaming mouse with customizable buttons.",
 			"status": true
 		}
 	]

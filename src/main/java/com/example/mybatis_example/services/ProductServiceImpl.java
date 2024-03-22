@@ -16,8 +16,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> findAll(int offset, int limit) {
-        return mapper.findAll(offset, limit);
+    public List<Product> findAll(String filter, int offset, int limit) {
+        return mapper.findAll(filter, offset, limit);
     }
 
     @Override
@@ -38,5 +38,10 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public int update(Product item) {
         return mapper.update(item);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mapper.getItemCount();
     }
 }

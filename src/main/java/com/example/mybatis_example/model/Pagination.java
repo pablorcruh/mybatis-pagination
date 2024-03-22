@@ -8,4 +8,5 @@ import lombok.Data;
 public class Pagination {
     private int size;
     private int page;
+    private int totalPages;
 }

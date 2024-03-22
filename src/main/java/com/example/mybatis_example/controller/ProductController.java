@@ -21,11 +21,16 @@ public class ProductController {
     }
 
     @GetMapping()
-    public Map<Object, Object> findAll(@RequestParam("page")int page, @RequestParam("size")int size){
+    public Map<Object, Object> findAll(
+            @RequestParam("filter") String filter,
+            @RequestParam("page")int page,
+            @RequestParam("size")int size){
         int offset = (page - 1) * size;
-        List<Product> products = service.findAll(offset, size);
+        int totalItems = service.getItemCount();
+        int totalPages = (int) Math.ceil((double) totalItems / size);
+        List<Product> products = service.findAll(filter, offset, size);
         List<Pagination> pageResponse = new ArrayList<>();
-        Pagination pagination = new Pagination(size, page);
+        Pagination pagination = new Pagination(size, page, totalPages);
         pageResponse.add(pagination);
         Map<Object, Object> response = new HashMap<>();
         response.put("pagination", pageResponse);
